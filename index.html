@@ -18,17 +18,13 @@
 
 	<div ng-controller="viewerCtrl" >
                
-        Search by tag: <input ng-model="selectedtags" ng-list=","  required />  
-		{{filtered.length}} / {{bookmarkslist.length}}
-		
-		<pre>{{selectedtags}}</pre>
-		
+       		
 	    <div class='row'>
 		
-            <div class='col2'>  
+            <div class='postlist'>  
 		        <div ng-repeat="post in filtered | limitTo : 30 " class='post'>
 		            <h2>
-               <img ng-src='{{"http://www.google.com/s2/favicons?domain="+post.url}}' /> 
+                        <img ng-src='{{"http://www.google.com/s2/favicons?domain="+post.url}}' /> 
 		                <a href="{{post.url}}"> {{post.title}}</a>
 		            </h2>
 		            <span class='url'> {{post.url}} </span>
@@ -41,21 +37,23 @@
 		        </div>
 		    </div>
 		    
-		    <div class='col1'>
+		    <div class='taglist'>
 		    
-		    	<div ng-repeat="tag in selectedtags " >
-		          <a href="#" ng-click="removetag(tag)"
-		            class='tagbutton' style="background-color:{{tag|getcolor}};" >{{tag}}</a>	        
-		         </div>
-		    
-		    <p>--</p>
-		    
-		        <div ng-repeat="tag in remainingtags" >
-		              <a href="#" ng-click="addtag(tag.label)"
+		        <ul class='selectedlist'>
+		        	<li ng-repeat="tag in selectedtags " >
+		              <a href="#" ng-click="removetag(tag)"
+		                class='tagbutton' style="background-color:{{tag|getcolor}};" >{{tag}}</a>	        
+		            </li>
+		        </ul>
+
+		        <ul class='remaininglist'>
+		          <li ng-repeat="tag in remainingtags" >
+		            <a href="#" ng-click="addtag(tag.label)"
 		                       class='tagbutton' style="background-color:{{tag.label | getcolor}};" >
 		                 {{tag.label}} ({{tag.count}})
-		              </a>	        
-		        </div>
+		             </a>	        
+		           </li>
+		        </ul>
 		    
 		</div>
 	</div>

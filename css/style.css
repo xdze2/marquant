@@ -1,7 +1,3 @@
-body {
-    font-family: sans;
-
-}
 
 .post {
     margin-bottom:15px;
@@ -53,43 +49,94 @@ a.tagchips {
     background-color: green;
 }
 
+
+
+
+/* my Grid system */
+
+.row {
+    display:grid;
+    grid-template-columns: 12em 3em 50em ;
+    margin-left: 4em;
+    margin-top: 4em;
+}
+.taglist {
+   grid-column: 1;
+   grid-row: 1;
+}
+.postlist {
+   grid-column: 3;
+}
+
+/* Tag list */
+
+    /*reset list*/
+.taglist li {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+
+
+
+.selectedlist, .remaininglist {
+    margin:0;
+    padding:0;
+    margin-bottom:0em;
+}
+
+
+.selectedlist li:last-child {
+    margin-bottom:2em;
+}
+
+
+
+
+
+.taglist {
+    font-family: sans;
+    font-size:0.8em;
+    font-weight:bold;
+
+}
+
+
+
 .tagbutton {
     display:block;
     box-sizing: border-box;
     width:100%;
-    height: 1.6em;
-    background-color: #888;
-    margin:5px;
-    padding: 3px;
-    padding-left:1em;
-    color:white;
-    text-decoration:none;
+    
+    
+    margin-bottom:0.6em;
+
+    padding: 0.4em;
+
+    padding-left:1.2em;
+
+
     opacity:1;
+    text-decoration:none;
+    color:white;
+    
+    box-shadow: 3px 2px 4px 2px #ddd;
 }
+
 .tagbutton:hover {
-    /*box-shadow: 8px 8px 4px 4px #bbb;*/
-    border-bottom: 3px solid black;
-    position:relative;
-    top:-2px;
-    left:0px; 
+    position: relative;
+    left:4px;
 }
-.tagbutton:active {
-    box-shadow: 0px 0px 2px 2px #777;
-    position:relative;
-    top:0px;
-    left:0px; 
-}
-/* my Grid */
 
-.row {
-    display:grid;
-    grid-template-columns: 200px 20px 900px ;
+.selectedlist  .tagbutton:hover {
+    position: relative;
+    left:-6px;
+}
 
-}
-.col1 {
-   grid-column: 1;
-   grid-row: 1;
-}
-.col2 {
-   grid-column: 3;
-}
+/*
+.tagbutton:hover:after {
+    content: "+";
+    
+}*/
+
+
